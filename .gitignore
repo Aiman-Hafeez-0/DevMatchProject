@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+*.env.local
+
+# Uploaded files (chat attachments etc.)
+DevMatch-Backend/uploads/
+
+# Node
+DevMatch-Frontend/node_modules/
+DevMatch-Frontend/dist/
+DevMatch-Frontend/.vite/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
