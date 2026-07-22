@@ -15,6 +15,21 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'supersecretkey123')
 
+# Cross-site session cookies — required because the frontend (Vercel) and
+# backend (Render) live on different domains. Flask's default SameSite=Lax
+# blocks cookies on cross-site requests, which breaks login/session entirely
+# once frontend and backend aren't on the same origin.
+#
+# Only applied in production (FLASK_DEBUG=false) — local dev keeps the
+# default relaxed cookie settings since localhost isn't served over HTTPS,
+# and SameSite=None cookies are rejected by browsers unless Secure+HTTPS.
+IS_PRODUCTION = os.getenv('FLASK_DEBUG', 'false').lower() != 'true'
+if IS_PRODUCTION:
+    app.config.update(
+        SESSION_COOKIE_SAMESITE='None',
+        SESSION_COOKIE_SECURE=True,
+    )
+
 # Upload folder — files are saved here and served back as static URLs
 UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'uploads')
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
