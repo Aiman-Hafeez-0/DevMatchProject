@@ -21,12 +21,17 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB limit
 
+# Local dev ports are always allowed. Add your live frontend URL(s) via the
+# FRONTEND_URLS env var (comma-separated) once deployed — e.g.
+# FRONTEND_URLS=https://devmatch.vercel.app
+_extra_origins = [o.strip() for o in os.getenv("FRONTEND_URLS", "").split(",") if o.strip()]
+
 CORS(app, supports_credentials=True, origins=[
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "http://localhost:5174",
-    "http://localhost:5175"
-], methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
+    "http://localhost:5175",
+] + _extra_origins, methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"])
 
 app.register_blueprint(auth_bp, url_prefix="/auth")
 app.register_blueprint(profiles_bp, url_prefix="/profiles")

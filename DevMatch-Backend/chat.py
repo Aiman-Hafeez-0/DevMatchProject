@@ -101,7 +101,9 @@ def upload_file():
     os.makedirs(save_dir, exist_ok=True)
     file.save(os.path.join(save_dir, unique_name))
 
-    file_url = f"http://localhost:5000/uploads/chat/{unique_name}"
+    # Build the URL from the actual request host so this works both locally
+    # and once deployed (avoids hardcoding localhost, which would break in production)
+    file_url = f"{request.host_url.rstrip('/')}/uploads/chat/{unique_name}"
     return jsonify({"file_url": file_url, "original_name": file.filename}), 200
 
 
