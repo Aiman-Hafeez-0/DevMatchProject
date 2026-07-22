@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { API_URL } from "../config";
 
 const AuthContext = createContext();
 
@@ -11,7 +12,7 @@ export function AuthProvider({ children }) {
   const fetchUserSession = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/auth/session", {
+      const res = await fetch(`${API_URL}/auth/session`, {
         method: "GET",
         credentials: "include",
       });
@@ -37,7 +38,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const login = async (formData) => {
-    const res = await fetch("http://localhost:5000/auth/login", {
+    const res = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -51,7 +52,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
-    await fetch("http://localhost:5000/auth/logout", {
+    await fetch(`${API_URL}/auth/logout`, {
       method: "POST",
       credentials: "include",
     });

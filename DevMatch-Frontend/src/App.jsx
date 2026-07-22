@@ -36,20 +36,11 @@ function App() {
   const location = useLocation();
   const isLanding = location.pathname === "/";
 
-  if (loading)
-    return (
-      <div
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#EEF2FB",
-        }}
-      >
-        <div className="spinner-border" style={{ color: "#2952A3" }} />
-      </div>
-    );
+  if (loading) return (
+    <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", background: "#EEF2FB" }}>
+      <div className="spinner-border" style={{ color: "#2952A3" }} />
+    </div>
+  );
 
   return (
     <>
@@ -100,7 +91,13 @@ function App() {
         />
         <Route
           path="/chat/project/:projectId"
-          element={user ? <ChatRoomWrapper /> : <Navigate to="/login" />}
+          element={
+            user ? (
+              <ChatRoomWrapper />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
       </Routes>
       <ToastContainer />
