@@ -50,7 +50,7 @@ function AppMockup() {
         {/* Stats row */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 12 }}>
           {[["6","Projects",P], ["3","Chats","#10B981"], ["80%","Top Match","#F59E0B"]].map(([v, l, c]) => (
-            <div key={l} style={{ background: "#2952A3"LIGHT, borderRadius: 8, padding: "8px 4px", textAlign: "center", border: `0.5px solid #D0DAEE` }}>
+            <div key={l} style={{ background: PLIGHT, borderRadius: 8, padding: "8px 4px", textAlign: "center", border: `0.5px solid #D0DAEE` }}>
               <div style={{ fontSize: 15, fontWeight: 800, color: c }}>{v}</div>
               <div style={{ fontSize: 8, color: MUTED }}>{l}</div>
             </div>
@@ -58,7 +58,7 @@ function AppMockup() {
         </div>
 
         {/* Match card */}
-        <div style={{ background: "#2952A3"LIGHT, borderRadius: 10, padding: 10, marginBottom: 8, border: "0.5px solid #f5c6d8" }}>
+        <div style={{ background: PLIGHT, borderRadius: 10, padding: 10, marginBottom: 8, border: "0.5px solid #f5c6d8" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 4 }}>
             <div>
               <div style={{ fontWeight: 700, fontSize: 11, color: TEXT }}>AI Resume Builder</div>
@@ -266,7 +266,7 @@ export default function LandingPage() {
       <section id="features" style={{ padding: "96px 24px", background: "#fff" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 56 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#2952A3"LIGHT, borderRadius: 20, padding: "5px 14px", marginBottom: 14 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: PLIGHT, borderRadius: 20, padding: "5px 14px", marginBottom: 14 }}>
               <FaStar size={10} color={P} />
               <span style={{ fontSize: "0.78rem", fontWeight: 600, color: P }}>Everything you need</span>
             </div>
