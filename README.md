@@ -2,6 +2,12 @@
 
 > A full-stack developer collaboration platform that matches developers to projects based on real skill alignment — and builds a verified contribution history as they work.
 
+## Live Demo → https://dev-match-project.vercel.app
+
+![DevMatch Screenshot](LandingPage.png)
+
+---
+
 Built with **React**, **Flask**, **PostgreSQL**, and **Socket.IO** — featuring skill-based matching, real-time team chat, private project invites, and a verified contribution ledger that goes beyond a GitHub commit graph or a generic star rating.
 
 ---
